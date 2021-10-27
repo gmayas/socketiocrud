@@ -14,7 +14,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Database
 require('./public/js/database');
 // listening the Server
-server.listen(5000);
-console.log("Server on http://localhost:5000");
+// settings
+app.set('port', process.env.PORT || 5000);
+server.listen(app.get('port'), () => {
+    console.log('Server on port', app.get('port'));
+  });
 // Importa eventos
 Sockets(io);
