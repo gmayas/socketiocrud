@@ -43,7 +43,6 @@ export const modifyNote = async (noteUpdate) => {
 
 export const deleteNote = async (id) => {
     try {
-       console.log('id:', id) 
        return await notes.deleteMany({ _id: id });          
     } catch (e) {
         console.log(e);

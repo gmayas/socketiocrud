@@ -12,18 +12,18 @@ export default (io) => {
       const newNote = await addNewNote(noteSend);
       io.emit('server:newNote', newNote);
     });
-
+    //
     socket.on('client:getNote',  async (id) => {
       const getMote = await getNote(id);
       socket.emit('server:getNote', getMote);
     });
-
+    //
     socket.on('client:deleteNote',  async (id) => {
       const delNote = await deleteNote(id);
       const notesList  = await getNotes();
       io.emit('server:loadNotes', notesList);
     });
-
+    //
     socket.on('client:modifyNote',  async (note) => {
       const upNote = await modifyNote(note);
       const notesList  = await getNotes();

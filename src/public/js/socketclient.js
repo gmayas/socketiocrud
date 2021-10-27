@@ -7,7 +7,6 @@ const saveNote = (noteSed) => {
 
  //Lee la lista notas creadas
 socket.on('server:loadNotes', (noteList) => {
-    //console.log('noteList: ', noteList);
     renderNotes(noteList)
 });
 
