@@ -8,6 +8,14 @@ export const getNotes = async () => {
     }
 };
 
+export const getNote = async (id) => {
+    try {
+        return await notes.findOne({ _id: id });
+    } catch (e) {
+        console.log(e);
+    }
+};
+
 export const addNewNote = async (noteSend) => {
     try {
         let newNote = new notes({
@@ -22,8 +30,7 @@ export const addNewNote = async (noteSend) => {
 
 export const modifyNote = async (noteUpdate) => {
     try {
-       console.log('noteUpdate:', noteUpdate) 
-       return await notes.updateOne({ _id: noteUpdate._id },
+       return await notes.findByIdAndUpdate({ _id: noteUpdate.id },
         {
             title: noteUpdate.title,
             note: noteUpdate.note,

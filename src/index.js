@@ -13,10 +13,8 @@ const io = new WebSocketServer(server);
 app.use(express.static(path.join(__dirname, 'public')));
 // Database
 require('./public/js/database');
-
 // listening the Server
 server.listen(5000);
 console.log("Server on http://localhost:5000");
-
 // Importa eventos
 Sockets(io);
